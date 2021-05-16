@@ -1,4 +1,5 @@
-// Import stylesheets
 import './style.css';
 
-// Write Javascript code!
+document.getElementById('startBtn').onclick = function() {
+  // location.href = 'home.html';
+};
