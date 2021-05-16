@@ -13,13 +13,14 @@
     html,
     body {
       height: 100%;
-      min-width: 00px;
+      min-width: 800px;
       min-height: 400px;
     }
 
     body {
       background-image: url('https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/chars7.jpg');
       background-size: cover;
+      font-family: 'Courier New', monospace;
     }
 
     #container {
@@ -34,23 +35,51 @@
 
     #title {
       margin: 60px auto;
-      font-family: 'Courier New', monospace;
     }
 
     #description {
       margin: 60px auto;
-      font-family: 'Courier New', monospace;
     }
 
     #startBtn {
       margin: 10px auto;
       max-width: 400px;
       width: 50%;
-      font-family: 'Courier New', monospace;
+
+    }
+
+    #cover_container {
+      display: none;
     }
 
     #game_container {
-      display: none;
+      margin: 0 0 100px 0;
+    }
+
+
+    #user_action_area {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #result_container {
+      flex: 30%;
+      height: 200px;
+
+    }
+
+    #structure_template_container {
+      flex: 40%;
+      border-right: 1px solid #f1f1f1;
+      border-left: 1px solid #f1f1f1;
+    }
+
+    #parts_container {
+      flex: 30%;
+    }
+
+    .ua_title {
+      margin: 0 0 20px 0;
     }
   </style>
 </head>
@@ -74,9 +103,39 @@
       </div>
     </div>
     <div id="game_container">
-      <h1 id="title" class="text-light fs-1">
-        Let's play something hehe
-      </h1>
+      <h3 id="title" class="text-light fs-1">
+        Question
+      </h3>
+      <div id="user_action_area">
+        <div id="result_container">
+          <h5 id="hint_title" class="ua_title text-light">
+            Hint
+          </h5>
+          <div id="hints_content" class="text-light">
+            <div id="pinyin">
+              Pin Yin: nán
+            </div>
+
+            <div id="meaning">
+              Meaning: male
+            </div>
+            <div id="chinese_char">
+              男
+            </div>
+          </div>
+        </div>
+        <div id="structure_template_container">
+          <h5 id="st_title" class="ua_title text-light fs-6">
+            Structure Template
+          </h5>
+        </div>
+        <div id="parts_container">
+          <h5 id="parts_title" class="ua_title text-light fs-6">
+            Parts
+          </h5>
+        </div>
+      </div>
+
     </div>
     <button id="startBtn" type="button" class="btn btn-outline-light">
         Start the game</a>
