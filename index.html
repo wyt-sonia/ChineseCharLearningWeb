@@ -13,7 +13,7 @@
     html,
     body {
       height: 100%;
-      min-width: 400px;
+      min-width: 00px;
       min-height: 400px;
     }
 
@@ -42,22 +42,25 @@
       font-family: 'Courier New', monospace;
     }
 
-    #startBtn,
-    #backBtn {
+    #startBtn {
       margin: 10px auto;
       max-width: 400px;
       width: 50%;
       font-family: 'Courier New', monospace;
+    }
+
+    #game_container {
+      display: none;
     }
   </style>
 </head>
 
 <body>
   <div id="container">
-    <div class="cover_container">
-      <p id="title" class="text-light fs-1">
+    <div id="cover_container">
+      <h1 id="title" class="text-light fs-1">
         Chinese Character Learning
-      </p>
+      </h1>
       <div id="description" class="text-light fs-6">
         <p>
           Some description here:
@@ -69,15 +72,15 @@
           What to play:
         </p>
       </div>
-      <button id="startBtn" type="button" class="btn btn-outline-light">
+    </div>
+    <div id="game_container">
+      <h1 id="title" class="text-light fs-1">
+        Let's play something hehe
+      </h1>
+    </div>
+    <button id="startBtn" type="button" class="btn btn-outline-light">
         Start the game</a>
       </button>
-    </div>
-    <div class="game_container">
-      <button id="backBtn" type="button" class="btn btn-outline-light">
-        Back to home</a>
-      </button>
-    </div>
   </div>
 </body>
 
