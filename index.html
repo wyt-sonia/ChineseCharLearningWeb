@@ -92,10 +92,6 @@
       border-left: 1px solid #f1f1f1;
     }
 
-    #parts_container {
-      flex: 30%;
-    }
-
     .ua_title {
       margin: 0 0 20px 0;
     }
@@ -113,7 +109,30 @@
     #chinese_char {
       margin: 20px 0 20px 0;
     }
+
+    #parts_container {
+      flex: 30%;
+    }
+
+    #parts_items_container {
+      display: flex;
+      flex-direction: c
+    }
+
+    .parts {
+      cursor: move;
+      display: inline-block;
+    }
   </style>
+
+  <script>
+    function drag_start(event) {
+    event.dataTransfer.setData('Text', event.target.html);
+    alert(event.getData('Text'));
+    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.setData('text', event.target.getAttribute('id'));
+  }
+  </script>
 </head>
 
 <body>
@@ -163,11 +182,22 @@
           <h5 id="st_title" class="ua_title text-light fs-6">
             Structure Template
           </h5>
+          <div id="st_container">
+
+          </div>
         </div>
         <div id="parts_container">
           <h5 id="parts_title" class="ua_title text-light fs-6">
             Parts
           </h5>
+          <div id="parts_items_container">
+            <div class="parts btn btn-outline-light" draggable="true" ondragstart="drag_start(event)">
+              田
+            </div>
+            <div class="parts btn btn-outline-light" draggable="true" ondragstart="drag_start(event)">>
+              力
+            </div>
+          </div>
         </div>
       </div>
 

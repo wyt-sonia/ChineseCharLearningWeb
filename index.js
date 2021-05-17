@@ -55,7 +55,6 @@ var chineseCharPartList = [
 ];
 
 // randomly display at parts
-
 $(document).ready(function() {
   var currentItem = 0;
   var isGaming = false;
@@ -82,6 +81,8 @@ $(document).ready(function() {
     toggleHintContent(currentItem);
   });
 
+  $('.parts').ondragstart();
+
   function freshUI(currentItem) {
     toggleHintContent(currentItem);
     if (currentItem == -1) {
@@ -91,7 +92,7 @@ $(document).ready(function() {
 
   function toggleContents(isGaming) {
     if (!isGaming) {
-      $('#nextBtn').fadeIn(00);
+      $('#nextBtn').fadeIn(1000);
 
       $('.cover_container').fadeIn(1000);
 
