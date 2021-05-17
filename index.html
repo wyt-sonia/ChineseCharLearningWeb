@@ -41,11 +41,29 @@
       margin: 60px auto;
     }
 
-    #startBtn {
+    #btn_container {
       margin: 10px auto;
+      display: flex;
+      flex-direction: row;
       max-width: 400px;
       width: 50%;
+    }
 
+    #startBtn {
+      flex: 1;
+      margin: 10px 10px;
+      max-width: 400px;
+    }
+
+    #nextBtn {
+      flex: 1;
+      margin: 10px 10px;
+      max-width: 400px;
+    }
+
+    #hintBtn {
+      min-width: 100px;
+      width: 80%;
     }
 
     #cover_container {
@@ -53,7 +71,7 @@
     }
 
     #game_container {
-      margin: 0 0 100px 0;
+      margin: 0 0 60px 0;
     }
 
 
@@ -64,7 +82,7 @@
 
     #result_container {
       flex: 30%;
-      height: 200px;
+      height: 300px;
 
     }
 
@@ -80,6 +98,20 @@
 
     .ua_title {
       margin: 0 0 20px 0;
+    }
+
+    #hints_content {
+      display: flex;
+      flex-direction: column;
+      height: 218px;
+    }
+
+    #meaning {
+      margin: 20px 0 20px 0;
+    }
+
+    #chinese_char {
+      margin: 20px 0 20px 0;
     }
   </style>
 </head>
@@ -113,16 +145,19 @@
           </h5>
           <div id="hints_content" class="text-light">
             <div id="pinyin">
-              Pin Yin: nán
+
             </div>
 
             <div id="meaning">
-              Meaning: male
+
             </div>
-            <div id="chinese_char">
-              男
-            </div>
+            <h1 id="chinese_char">
+
+            </h1>
           </div>
+          <button id="hintBtn" type="button" class="btn btn-outline-light">
+            Show Hint
+          </button>
         </div>
         <div id="structure_template_container">
           <h5 id="st_title" class="ua_title text-light fs-6">
@@ -137,9 +172,15 @@
       </div>
 
     </div>
-    <button id="startBtn" type="button" class="btn btn-outline-light">
-        Start the game</a>
+    <div id="btn_container">
+      <button id="startBtn" type="button" class="btn btn-outline-light">
+        Start the game
       </button>
+      <button id="nextBtn" type="button" class="btn btn-outline-light">
+        Next
+      </button>
+    </div>
+
   </div>
 </body>
 
