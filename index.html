@@ -14,7 +14,7 @@
     body {
       height: 100%;
       min-width: 800px;
-      min-height: 400px;
+      min-height: 600px;
     }
 
     body {
@@ -83,7 +83,6 @@
     #result_container {
       flex: 30%;
       height: 300px;
-
     }
 
     #structure_template_container {
@@ -116,23 +115,33 @@
 
     #parts_items_container {
       display: flex;
-      flex-direction: c
+      flex-direction: column;
+    }
+
+    #st_container {
+      height: 100%;
+      width: 100%;
+    }
+
+    #st_contents {
+      margin: auto 0;
+      padding: 0 20px;
+      height: 90%;
+      width: 100%;
     }
 
     .parts {
       cursor: move;
       display: inline-block;
+      margin: 20px;
+      font-size: 3em;
+    }
+
+    .st_content {
+      display: inline-block;
+      border: 2px dashed white;
     }
   </style>
-
-  <script>
-    function drag_start(event) {
-    event.dataTransfer.setData('Text', event.target.html);
-    alert(event.getData('Text'));
-    event.dataTransfer.dropEffect = 'move';
-    event.dataTransfer.setData('text', event.target.getAttribute('id'));
-  }
-  </script>
 </head>
 
 <body>
@@ -191,12 +200,7 @@
             Parts
           </h5>
           <div id="parts_items_container">
-            <div class="parts btn btn-outline-light" draggable="true" ondragstart="drag_start(event)">
-              田
-            </div>
-            <div class="parts btn btn-outline-light" draggable="true" ondragstart="drag_start(event)">>
-              力
-            </div>
+
           </div>
         </div>
       </div>

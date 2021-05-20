@@ -54,15 +54,43 @@ var chineseCharPartList = [
   ['艹', '曰', '十']
 ];
 
+var st_htmls = [
+  //
+  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
+  //
+  '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="left_down"style="padding: 0 0 30% 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-top: 0px; border-right: 0px;"></div> </div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="left_top" style="padding: 30% 0 0 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-bottom: 0px; border-right: 0px;"> </div> </div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="right-top" style="padding: 30% 30% 0 0; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-bottom: 0px; border-left: 0px;"> </div> </div>  </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="left_down" style="padding: 30% 25% 0 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-bottom: 0px;"></div> </div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 0 25% 30% 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-top: 0px;"></div> </div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 25% 0 25% 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-right: 0px;"></div> </div> </div>',
+  //
+  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 25% 25% 25% 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%;"></div> </div> </div>',
+  //
+  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="mid" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
+  //
+  '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="mid" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>'
+];
+
 // randomly display at parts
 $(document).ready(function() {
   var currentItem = 0;
   var isGaming = false;
+  var part = '';
 
   freshUI(-1);
 
   $('#nextBtn').click(function() {
     currentItem++;
+    initST(currentItem);
+    initParts(currentItem);
     toggleHintContent(-1);
   });
 
@@ -72,6 +100,8 @@ $(document).ready(function() {
       freshUI(-1);
     } else {
       toggleContents(isGaming);
+      initST(0);
+      initParts(0);
     }
 
     isGaming = !isGaming;
@@ -81,7 +111,158 @@ $(document).ready(function() {
     toggleHintContent(currentItem);
   });
 
-  $('.parts').ondragstart();
+  $(document).on('dragstart', '.parts', function(event) {
+    console.log(event.target.id + ' is draged');
+    part = event.target.id;
+  });
+
+  $(document).on('dragenter', '.st_content', function(event) {
+    event.target.animate(
+      {
+        border: '2px dashed white',
+        backgroundColor: 'white',
+        opacity: '0.3'
+      },
+      1000
+    );
+  });
+
+  $(document).on('dragover', '.st_content', function(event) {
+    
+    $(event.target).css({
+      border: '2px dashed white',
+      backgroundColor: 'white',
+      opacity: '0.3'
+    });
+  });
+
+  $(document).on('dragleave', '.st_content', function(event) {
+    event.target.animate(
+      {
+        backgroundColor: 'transparent',
+        border: '2px dashed white'
+      },
+      1000
+    );
+    $(event.target).css({
+      backgroundColor: 'transparent',
+      border: '2px dashed white'
+    });
+  });
+
+  $(document).on('drop', '.st_content', function(event) {
+    // validation
+    //    true
+    //        append new item here
+    //        remove from parts
+    //        if all parts are matched -> display correct result UI
+    //    false
+    //        display wrong attempt UI
+
+    if (isCorrect(event)) {
+      event.preventDefault();
+      event.target.appendChild(document.getElementById(part));
+    } else {
+      alert('wrong attempt, please retry.');
+    }
+  });
+
+  function isCorrect(event) {
+    var result = true;
+    switch (currentItem) {
+      case 0:
+        if (
+          (event.target.id == 'top' && part != '田') ||
+          (event.target.id != 'top' && part == '田')
+        ) {
+          result = false;
+        }
+        break;
+      case 1:
+        if (
+          (event.target.id == 'right' && part != '工') ||
+          (event.target.id != 'right' && part == '工')
+        ) {
+          result = false;
+        }
+        break;
+      case 2:
+        if (
+          (event.target.id == 'inner' && part != '井') ||
+          (event.target.id != 'inner' && part == '井')
+        ) {
+          result = false;
+        }
+        break;
+      case 3:
+        if (
+          (event.target.id == 'inner' && part != '占') ||
+          (event.target.id != 'inner' && part == '占')
+        ) {
+          result = false;
+        }
+        break;
+      case 4:
+        if (
+          (event.target.id == 'inner' && part != '厶') ||
+          (event.target.id != 'inner' && part == '厶')
+        ) {
+          result = false;
+        }
+        break;
+      case 5:
+        if (
+          (event.target.id == 'inner' && part != '才') ||
+          (event.target.id != 'inner' && part == '才')
+        ) {
+          result = false;
+        }
+        break;
+      case 6:
+        if (
+          (event.target.id == 'inner' && part != '乂') ||
+          (event.target.id != 'inner' && part == '乂')
+        ) {
+          result = false;
+        }
+        break;
+      case 7:
+        if (
+          (event.target.id == 'inner' && part != '矢') ||
+          (event.target.id != 'inner' && part == '矢')
+        ) {
+          result = false;
+        }
+        break;
+      case 8:
+        if (
+          (event.target.id == 'inner' && part != '玉') ||
+          (event.target.id != 'inner' && part == '玉')
+        ) {
+          result = false;
+        }
+        break;
+      case 9:
+        if (part == '木') {
+          result = event.target.id == 'left';
+        } else if (part == '寸') {
+          result = event.target.id == 'right';
+        } else {
+          result = event.target.id == 'mid';
+        }
+        break;
+      case 10:
+        if (part == '艹') {
+          result = event.target.id == 'top';
+        } else if (part == '曰') {
+          result = event.target.id == 'mid';
+        } else {
+          result = event.target.id == 'down';
+        }
+        break;
+    }
+    return result;
+  }
 
   function freshUI(currentItem) {
     toggleHintContent(currentItem);
@@ -166,5 +347,32 @@ $(document).ready(function() {
         $('#chinese_char').fadeIn();
       });
     }
+  }
+
+  function initST(currentItem) {
+    $('#st_container').fadeOut(500, function() {
+      $('#st_container').html(st_htmls[currentItem]);
+      $('#st_container').fadeIn();
+    });
+  }
+
+  function initParts(currentItem) {
+    $('#parts_items_container').fadeOut(500, function() {
+      $('#parts_items_container').html(getParts(currentItem));
+      $('#parts_items_container').fadeIn();
+    });
+  }
+
+  function getParts(currentItem) {
+    var partsHtml = '';
+    for (i = 0; i < chineseCharPartList[currentItem].length; i++) {
+      partsHtml +=
+        "<div id='" +
+        chineseCharPartList[currentItem][i] +
+        '\' class="parts btn btn-outline-light" draggable="true">' +
+        chineseCharPartList[currentItem][i] +
+        '</div>';
+    }
+    return partsHtml;
   }
 });
