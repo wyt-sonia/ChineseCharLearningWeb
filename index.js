@@ -64,15 +64,15 @@ var st_htmls = [
   //
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content" id="inner" style="flex: 1; border-right:0px; border-top:0px"></div><div class="st_content outer" id="1" style="flex: 2"></div></div></div></div>',
   //
-  '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;"> <div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="1" style="flex: 2;"></div> <div class="st_content" id="inner" style="flex: 1;border-top:0px;border-left:0px"></div> </div> </div> </div>',
+  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content" id="inner" style="flex: 2;" ></div> <div class="st_content outer" id="1" style="flex: 1;border-top:0px;border-left:0px" ></div> </div> </div></div>',
   //
-  '<div id="st_contents"> <div class="st_content" id="left_down" style="padding: 30% 25% 0 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-bottom: 0px;"></div> </div> </div>',
+  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"> <div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="1" style="flex: 1;border-top:0px;border-right:0px" ></div>  <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-top:0px;border-left:0px" ></div> </div> </div></div>',
   //
-  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 0 25% 30% 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-top: 0px;"></div> </div> </div>',
+  '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;" > <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px" ></div> </div> <div class="st_content outer" id="0" style="display:flex; flex: 1; border-top:0px" ></div> </div></div>',
   //
-  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 25% 0 25% 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-right: 0px;"></div> </div> </div>',
+  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="1" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="0" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> </div> <div class="st_content outer" id="2" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
   //
-  '<div id="st_contents"> <div class="st_content" id="outer" style="padding: 25% 25% 25% 25%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%;"></div> </div> </div>',
+  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;">  <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px;border-top:0px" ></div> </div> <div class="st_content outer" id="3" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
   //
   '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="mid" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
   //
@@ -89,6 +89,9 @@ $(document).ready(function() {
 
   $('#nextBtn').click(function() {
     currentItem++;
+    if (currentItem == 10) {
+      $('#nextBtn').fadeOut(1);
+    }
     initST(currentItem);
     initParts(currentItem);
     toggleHintContent(-1);
@@ -98,11 +101,10 @@ $(document).ready(function() {
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
       freshUI(-1);
-    } else {
+    } 
       toggleContents(isGaming);
       initST(0);
       initParts(0);
-    }
 
     isGaming = !isGaming;
   });
