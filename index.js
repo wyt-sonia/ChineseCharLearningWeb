@@ -56,7 +56,7 @@ var chineseCharPartList = [
 
 var st_htmls = [
   // 男
-  '<div id="st_contents"> <div style="display: flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1;border-down:0px;"></div> <div class="st_content" id="down" style="flex: 1;border-top:0px;"></div> </div> </div> ',
+  '<div id="st_contents"> <div style="display: flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1;border-bottom:0px;"></div> <div class="st_content" id="down" style="flex: 1;"></div> </div> </div> ',
   // 红
   '<div id="st_contents"> <div style="display: flex; flex-direction: row;height: 95%; width: 100%;"> <div class="st_content" id="left" style="flex:1;border-right:0px;"></div> <div class="st_content" id="right" style="flex:1;"></div> </div> </div>',
   // 进
@@ -74,9 +74,9 @@ var st_htmls = [
   // 国
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;">  <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px;border-top:0px" ></div> </div> <div class="st_content outer" id="3" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
   // 树
-  ' <div id="st_contents"> <div style="display: flex; flex-direction: row;height: 95%; width: 100%;"> <div class="st_content" id="left" style="flex:1;border-right:0px;"></div> <div class="st_content" id="mid" style="flex:1;"></div> <div class="st_content" id="right" style="flex:1; border-left:0px;"></div> </div> </div>',
+  '<div id="st_contents"> <div style="display: flex; flex-direction: row;height: 95%; width: 100%;"><div class="st_content" id="left" style="flex: 1;border-right:0px;"></div> <div class="st_content" id="mid" style="flex: 1;"></div> <div class="st_content" id="right" style="flex: 1;border-left:0px;"></div> </div> </div>',
   // 草
-  '<div id="st_contents"> <div style="display: flex; flex-direction: row;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1; border-down:0px;"></div> <div class="st_content" id="mid" style="flex: 1; "></div> <div class="st_content" id="down" style="flex: 1; border-top:0px;"></div> </div> </div>'
+  '<div id="st_contents"> <div style="display: flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1;border-bottom:0px;"></div> <div class="st_content" id="mid" style="flex: 1;"></div> <div class="st_content" id="down" style="flex: 1;border-top:0px;"></div> </div> </div>'
 ];
 
 // randomly display at parts
@@ -421,10 +421,15 @@ $(document).ready(function() {
   function getParts(currentItem) {
     var partsHtml = '';
     for (i = 0; i < chineseCharPartList[currentItem].length; i++) {
+      var style = "";
+      if (currentItem > 8) {
+        style = 'style= "margin: 10px; font-size: 2.5em"';
+        $("#hints_content").css("height", "8%");
+      } 
       partsHtml +=
         "<div id='" +
         chineseCharPartList[currentItem][i] +
-        '\' class="parts btn btn-outline-light" draggable="true">' +
+        '\' class="parts btn btn-outline-light" draggable="true" '+ style +'>' +
         chineseCharPartList[currentItem][i] +
         '</div>';
     }
