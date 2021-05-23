@@ -162,14 +162,14 @@ $(document).ready(function() {
         }
       }
 
-      getElementById(part).classList.remove("btn");
-      getElementById(part).classList.remove("btn-outline-light");
+      document.getElementById(part).classList.remove("btn");
+      documentgetElementById(part).classList.remove("btn-outline-light");
       var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
 
       $("#" + part).css ({
         paddingTop: paddingT,
         color: 'white',
-        
+
       });
     } else {
       event.stoppropagation()
