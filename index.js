@@ -96,7 +96,7 @@ $(document).ready(function() {
       $('#nextBtn').fadeOut(1);
     }
 
-    toggleIsSimple();
+    toggleIsSimple(currentItem);
     initST(currentItem);
     initParts(currentItem);
     toggleHintContent(-1);
@@ -145,8 +145,8 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on('dragleave', '.st_content', function(event) {
-    partFadeBack(event);
+  $(document).on('dragleave', '.st_content', function(event, this) {
+    partFadeBack(event, );
   });
 
   $(document).on('drop', '.st_content', function(event, this) {
@@ -163,7 +163,8 @@ $(document).ready(function() {
       }
 
       document.getElementById(part).classList.remove("btn");
-      documentgetElementById(part).classList.remove("btn-outline-light");
+      document.getElementById(part).classList.remove("btn-outline-light");
+      document.getElementById(part).setAttribute('draggable', false);
       var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
 
       $("#" + part).css ({
@@ -177,7 +178,7 @@ $(document).ready(function() {
     }
   });
 
-  function toggleIsSimple() {
+  function toggleIsSimple(currentItem) {
     if (currentItem < 9 && currentItem > 1) {
       isSimple = false;
     } else {
@@ -186,6 +187,7 @@ $(document).ready(function() {
   }
 
   function partFadeBack(event) {
+    console.log("wh??");
     if (!isSimple && event.target.id != 'inner') {
       if (!isOuterFull) {
         $('.outer').css({
@@ -195,7 +197,9 @@ $(document).ready(function() {
         });
       }
     } else {
-      if (this.childElementCount == 0) {
+      console.log(document.getElementById(event.target.id).childElementCount);
+      if (document.getElementById(event.target.id).childElementCount == 0) {
+        console.log("wh");
         $(event.target).css({
           backgroundColor: 'transparent',
           opacity: '1',
