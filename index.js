@@ -55,28 +55,28 @@ var chineseCharPartList = [
 ];
 
 var st_htmls = [
-  //
+  // 男
   '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
-  //
+  // 红
   '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>',
-  //
+  // 进
   '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content outer" id="0" style="flex: 1; border-right:0px; border-bottom:0px"></div><div class="st_content" id="inner" style="flex: 2"></div></div><div class="st_content outer" id="1" style="display:flex; flex: 1; border-top:0px"></div></div></div>',
-  //
-  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content" id="inner" style="flex: 1; border-right:0px; border-top:0px"></div><div class="st_content outer" id="1" style="flex: 2"></div></div></div></div>',
-  //
+  // 店
+  '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content outer" id="1" style="flex: 1; border-right:0px; border-top:0px"></div><div class="st_content" id="inner" style="flex: 2"></div></div></div></div>',
+  // 勾
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px"></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content" id="inner" style="flex: 2;" ></div> <div class="st_content outer" id="1" style="flex: 1;border-top:0px;border-left:0px" ></div> </div> </div></div>',
-  //
+  // 闭
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"> <div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="1" style="flex: 1;border-top:0px;border-right:0px" ></div>  <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-top:0px;border-left:0px" ></div> </div> </div></div>',
-  //
+  // 凶
   '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;" > <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px" ></div> </div> <div class="st_content outer" id="0" style="display:flex; flex: 1; border-top:0px" ></div> </div></div>',
-  //
+  // 医
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="1" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;"> <div class="st_content outer" id="0" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> </div> <div class="st_content outer" id="2" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
-  //
+  // 国
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;">  <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px;border-top:0px" ></div> </div> <div class="st_content outer" id="3" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
-  //
-  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="mid" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
-  //
-  '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="mid" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>'
+  // 树
+  '',
+  // 草
+  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="mid" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>'
 ];
 
 // randomly display at parts
@@ -146,7 +146,7 @@ $(document).ready(function() {
   });
 
   $(document).on('dragleave', '.st_content', function(event, this) {
-    partFadeBack(event, );
+    partFadeBack(event);
   });
 
   $(document).on('drop', '.st_content', function(event, this) {
@@ -154,7 +154,8 @@ $(document).ready(function() {
       partFadeBack(event);
       if (!isSimple && event.target.id != 'inner') { 
         if (!isOuterFull) {       
-          $("#0").appendChild(document.getElementById(part));
+          document.getElementById("0").appendChild(document.getElementById(part));
+          isOuterFull = false;
         }
       } else {
         if (this.childElementCount == 0) {
@@ -170,10 +171,15 @@ $(document).ready(function() {
       $("#" + part).css ({
         paddingTop: paddingT,
         color: 'white',
-
+        margin: '0',
+        width: '100%',
+        textAline: 'center',
       });
+      if (isFullyCorrect()) {
+        counter = 0;
+        isOuterFull = false;
+      }
     } else {
-      event.stoppropagation()
       partFadeBack(event);
     }
   });
@@ -186,8 +192,16 @@ $(document).ready(function() {
     }
   }
 
+  function isFullyCorrect() {
+    counter++;
+    if (currentItem < 9) {
+      return counter == 2;
+    } else {
+      return counter == 3;
+    }
+  }
+
   function partFadeBack(event) {
-    console.log("wh??");
     if (!isSimple && event.target.id != 'inner') {
       if (!isOuterFull) {
         $('.outer').css({
@@ -199,7 +213,6 @@ $(document).ready(function() {
     } else {
       console.log(document.getElementById(event.target.id).childElementCount);
       if (document.getElementById(event.target.id).childElementCount == 0) {
-        console.log("wh");
         $(event.target).css({
           backgroundColor: 'transparent',
           opacity: '1',
