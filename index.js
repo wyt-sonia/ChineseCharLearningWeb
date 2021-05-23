@@ -60,7 +60,8 @@ var st_htmls = [
   //
   '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>',
   //
-  '<div id="st_contents"> <div class="st_content" id="left_down"style="padding: 0 0 30% 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-top: 0px; border-right: 0px;"></div> </div> </div>',
+  '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content outer" id="0" style="flex: 1; border-right:0px; border-bottom:0px"></div><div class="st_content" id="inner" style="flex: 2"></div></div><div class="st_content outer" id="1" style="display:flex; flex: 1; border-top:0px"></div></div>
+            </div>',
   //
   '<div id="st_contents"> <div class="st_content" id="left_top" style="padding: 30% 0 0 30%; margin: 5px 0; height: 100%; width: 100%;"> <div class="st_content" id="inner" style="height: 100%; width: 100%; border-bottom: 0px; border-right: 0px;"> </div> </div> </div>',
   //
@@ -128,7 +129,6 @@ $(document).ready(function() {
   });
 
   $(document).on('dragover', '.st_content', function(event) {
-    
     $(event.target).css({
       border: '2px dashed white',
       backgroundColor: 'white',
@@ -151,14 +151,6 @@ $(document).ready(function() {
   });
 
   $(document).on('drop', '.st_content', function(event) {
-    // validation
-    //    true
-    //        append new item here
-    //        remove from parts
-    //        if all parts are matched -> display correct result UI
-    //    false
-    //        display wrong attempt UI
-
     if (isCorrect(event)) {
       event.preventDefault();
       event.target.appendChild(document.getElementById(part));
