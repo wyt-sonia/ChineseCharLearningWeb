@@ -151,6 +151,7 @@ $(document).ready(function() {
 
   $(document).on('drop', '.st_content', function(event, this) {
     if (isCorrect(event)) {
+      partFadeBack(event);
       if (!isSimple && event.target.id != 'inner') { 
         if (!isOuterFull) {       
           $("#0").appendChild(document.getElementById(part));
@@ -160,6 +161,16 @@ $(document).ready(function() {
           this.appendChild(document.getElementById(part));
         }
       }
+
+      getElementById(part).classList.remove("btn");
+      getElementById(part).classList.remove("btn-outline-light");
+      var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
+
+      $("#" + part).css ({
+        paddingTop: paddingT,
+        color: 'white',
+        
+      });
     } else {
       event.stoppropagation()
       partFadeBack(event);
