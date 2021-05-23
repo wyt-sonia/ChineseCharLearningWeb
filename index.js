@@ -56,9 +56,9 @@ var chineseCharPartList = [
 
 var st_htmls = [
   // 男
-  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>',
+  '<div id="st_contents" style="display: flex; flex-direction: column;height: 95%; width: 100%;"> <div class="st_content" id="top" style="flex: 1;border-down:0px;"></div> <div class="st_content" id="down" style="flex: 1;"></div> </div>',
   // 红
-  '<div id="st_contents" style="display: flex; flex-direction: row;"> <div class="st_content" id="left" style="flex:1; margin: 5px 5px 5px 0px; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; margin: 5px 0px 5px 5px; height: 100%;"></div> </div>',
+  '<div id="st_contents" style="display: flex; flex-direction: row;height: 95%; width: 100%;"> <div class="st_content" id="left" style="flex:1;border-right:0px"></div> <div class="st_content" id="right" style="flex:1; height: 95%;"></div> </div>',
   // 进
   '<div id="st_contents"> <div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div style="display:flex; flex: 2;height: 100%; width: 100%;"><div class="st_content outer" id="0" style="flex: 1; border-right:0px; border-bottom:0px"></div><div class="st_content" id="inner" style="flex: 2"></div></div><div class="st_content outer" id="1" style="display:flex; flex: 1; border-top:0px"></div></div></div>',
   // 店
@@ -74,9 +74,9 @@ var st_htmls = [
   // 国
   '<div id="st_contents"><div style="display:flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content outer" id="0" style="display:flex; flex: 1; border-bottom:0px" ></div> <div style="display:flex; flex: 2;height: 100%; width: 100%;">  <div class="st_content outer" id="1" style="flex: 1;border-bottom:0px;border-right:0px;border-top:0px" ></div> <div class="st_content" id="inner" style="flex: 2;"></div> <div class="st_content outer" id="2" style="flex: 1;border-bottom:0px;border-left:0px;border-top:0px" ></div> </div> <div class="st_content outer" id="3" style="display:flex; flex: 1; border-top:0px" ></div> </div> </div>',
   // 树
-  '',
+  ' <div id="st_contents" style="display: flex; flex-direction: row;height: 95%; width: 100%;"> <div class="st_content" id="left" style="flex:1;border-right:0px; height: 100%;"></div> <div class="st_content" id="mid" style="flex:1; height: 100%;"></div> <div class="st_content" id="right" style="flex:1; border-left:0px height: 100%;"></div> </div>',
   // 草
-  '<div id="st_contents" style="display: flex; flex-direction: column;"> <div class="st_content" id="top" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="mid" style="flex: 1; margin: 5px 0;"></div> <div class="st_content" id="down" style="flex: 1; margin: 5px 0;"></div> </div>'
+  '<div id="st_contents" style="display: flex; flex-direction: column;height: 95%; width: 100%;"> <div class="st_content" id="top" style="flex: 1; border-down:0px"></div> <div class="st_content" id="mid" style="flex: 1; "></div> <div class="st_content" id="down" style="flex: 1; border-top:0px"></div> </div>'
 ];
 
 // randomly display at parts
