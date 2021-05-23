@@ -84,6 +84,9 @@ $(document).ready(function() {
   var currentItem = 0;
   var isGaming = false;
   var part = '';
+  var isOuterFull = false;
+  var counter = 0;
+  var isSimple = true;
 
   freshUI(-1);
 
@@ -92,6 +95,8 @@ $(document).ready(function() {
     if (currentItem == 10) {
       $('#nextBtn').fadeOut(1);
     }
+
+    toggleIsSimple();
     initST(currentItem);
     initParts(currentItem);
     toggleHintContent(-1);
@@ -101,10 +106,10 @@ $(document).ready(function() {
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
       freshUI(-1);
-    } 
-      toggleContents(isGaming);
-      initST(0);
-      initParts(0);
+    }
+    toggleContents(isGaming);
+    initST(0);
+    initParts(0);
 
     isGaming = !isGaming;
   });
@@ -118,23 +123,24 @@ $(document).ready(function() {
     part = event.target.id;
   });
 
-  $(document).on('dragenter', '.st_content', function(event) {
-    event.target.animate(
-      {
-        border: '2px dashed white',
+  $(document).on('dragover', '.st_content', function(event, this) {
+    if (!isSimple && event.target.id != 'inner') {
+      if (!isOuterFull) {
+        $('.outer').css({
+          backgroundColor: 'white',
+          opacity: '0.3',
+          transition: 'all 0.3s ease'
+        });
+      }
+    } else {
+      if (this.childElementCount == 0) {
+      $(event.target).css({
         backgroundColor: 'white',
-        opacity: '0.3'
-      },
-      1000
-    );
-  });
-
-  $(document).on('dragover', '.st_content', function(event) {
-    $(event.target).css({
-      border: '2px dashed white',
-      backgroundColor: 'white',
-      opacity: '0.3'
-    });
+        opacity: '0.3',
+        transition: 'all 0.3s ease'
+      });
+      }
+    }
   });
 
   $(document).on('dragleave', '.st_content', function(event) {
@@ -159,6 +165,14 @@ $(document).ready(function() {
       alert('wrong attempt, please retry.');
     }
   });
+
+  function toggleIsSimple() {
+    if (currentItem < 9 && currentItem > 1) {
+      isSimple = false;
+    } else {
+      isSimple = true;
+    }
+  }
 
   function isCorrect(event) {
     var result = true;
