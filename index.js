@@ -126,6 +126,7 @@ $(document).ready(function() {
   $(document).on('dragover', '.st_content', function(event, this) {
     if (!isSimple && event.target.id != 'inner') {
       if (!isOuterFull) {
+        event.preventDefault();
         $('.outer').css({
           backgroundColor: 'white',
           opacity: '0.3',
@@ -134,35 +135,34 @@ $(document).ready(function() {
       }
     } else {
       if (this.childElementCount == 0) {
-      $(event.target).css({
-        backgroundColor: 'white',
-        opacity: '0.3',
-        transition: 'all 0.3s ease'
-      });
+        event.preventDefault();
+        $(event.target).css({
+          backgroundColor: 'white',
+          opacity: '0.3',
+          transition: 'all 0.3s ease'
+        });
       }
     }
   });
 
   $(document).on('dragleave', '.st_content', function(event) {
-    event.target.animate(
-      {
-        backgroundColor: 'transparent',
-        border: '2px dashed white'
-      },
-      1000
-    );
-    $(event.target).css({
-      backgroundColor: 'transparent',
-      border: '2px dashed white'
-    });
+    partFadeBack(event);
   });
 
-  $(document).on('drop', '.st_content', function(event) {
+  $(document).on('drop', '.st_content', function(event, this) {
     if (isCorrect(event)) {
-      event.preventDefault();
-      event.target.appendChild(document.getElementById(part));
+      if (!isSimple && event.target.id != 'inner') { 
+        if (!isOuterFull) {       
+          $("#0").appendChild(document.getElementById(part));
+        }
+      } else {
+        if (this.childElementCount == 0) {
+          this.appendChild(document.getElementById(part));
+        }
+      }
     } else {
-      alert('wrong attempt, please retry.');
+      event.stoppropagation()
+      partFadeBack(event);
     }
   });
 
@@ -171,6 +171,26 @@ $(document).ready(function() {
       isSimple = false;
     } else {
       isSimple = true;
+    }
+  }
+
+  function partFadeBack(event) {
+    if (!isSimple && event.target.id != 'inner') {
+      if (!isOuterFull) {
+        $('.outer').css({
+          backgroundColor: 'transparent',
+          opacity: '1',
+          transition: 'all 0.3s ease'
+        });
+      }
+    } else {
+      if (this.childElementCount == 0) {
+        $(event.target).css({
+          backgroundColor: 'transparent',
+          opacity: '1',
+          transition: 'all 0.3s ease'
+        });
+      }
     }
   }
 
