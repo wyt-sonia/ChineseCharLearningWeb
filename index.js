@@ -194,11 +194,13 @@ $(document).ready(function() {
       if (isFullyCorrect()) {
         counter = 0;
         isOuterFull = false;
+        $('#successModal').modal('show');
         togglePY();
         toggleMeaning();
         toggleChar();
       }
     } else {
+      $('#wrongAttemptModal').modal('show');
       partFadeBack(event);
     }
   });
@@ -426,7 +428,6 @@ $(document).ready(function() {
 
   function toggleChar() {
     if (!isCharHintDisplaying) {
-
       $('#chinese_char').fadeOut(500, function() {
         document.getElementById('chinese_char').classList.remove("btn");
         document.getElementById('chinese_char').classList.remove("btn-outline-light");      
