@@ -61,11 +61,6 @@
       max-width: 400px;
     }
 
-    #hintBtn {
-      min-width: 100px;
-      width: 80%;
-    }
-
     #game_container {
       display: none;
     }
@@ -81,6 +76,7 @@
 
     #result_container {
       flex: 30%;
+      max-width: 300px;
       height: 300px;
     }
 
@@ -106,7 +102,7 @@
     }
 
     #meaning {
-      margin: 20% 0;
+      margin: 40px 0;
     }
 
     #st_container {
@@ -136,6 +132,10 @@
       display: inline-block;
       margin: 20px;
       font-size: 3em;
+    }
+
+    .hint {
+      transition: all 0.1s ease;
     }
 
     .st_content {
@@ -173,13 +173,13 @@
             Hint
           </h5>
           <div id="hints_content" class="text-light">
-            <div id="pinyin" type="button" class="btn btn-outline-light">
+            <div id="pinyin" type="button" class="btn btn-outline-light hint">
               Pin Yin Hint
             </div>
-            <div id="meaning" type="button" class="btn btn-outline-light">
+            <div id="meaning" type="button" class="btn btn-outline-light hint">
               Meaning Hint
             </div>
-            <div id="chinese_char" type="button" class="btn btn-outline-light">
+            <div id="chinese_char" type="button" class="btn btn-outline-light hint">
               Result Character
             </div>
           </div>
