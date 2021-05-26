@@ -382,6 +382,10 @@ $(document).ready(function() {
 
       $('.cover_container').fadeIn(1000);
 
+      $('#container').css({
+          backgroundColor: 'rgba(0, 0, 0, 0.5);'
+        });
+
       $('#startBtn').fadeOut(500, function() {
         $('#startBtn').html('Start the game');
         $('#startBtn').fadeIn();
