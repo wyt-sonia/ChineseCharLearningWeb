@@ -119,6 +119,12 @@ $(document).ready(function() {
     isGaming = !isGaming;
   });
 
+  $('successModalCloseBtn').click(function() {
+      togglePY();
+      toggleMeaning();
+      toggleChar();
+  });
+
   $('#pinyin').click(function() {
     togglePY();
   });
@@ -195,9 +201,6 @@ $(document).ready(function() {
         counter = 0;
         isOuterFull = false;
         $('#successModal').modal('show');
-        togglePY();
-        toggleMeaning();
-        toggleChar();
       }
     } else {
       $('#wrongAttemptModal').modal('show');
