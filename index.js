@@ -87,6 +87,9 @@ $(document).ready(function() {
   var isOuterFull = false;
   var counter = 0;
   var isSimple = true;
+  var isPYHintDisplaying = false;
+  var isMeaningHintDisplaying = false;
+  var isCharHintDisplaying = false;
 
   freshUI(-1);
   var st_containerW = $("#st_container").width();
@@ -175,7 +178,7 @@ $(document).ready(function() {
       }
 
       document.getElementById(part).classList.remove("btn");
-      document.getElementById(part).classList.remove("btn-outline-waring");
+      document.getElementById(part).classList.remove("btn-outline-warning");
       document.getElementById(part).classList.remove("btn-outline-info");
       document.getElementById(part).classList.remove("btn-outline-success");
       document.getElementById(part).setAttribute('draggable', false);
@@ -193,7 +196,7 @@ $(document).ready(function() {
         isOuterFull = false;
         togglePY();
         toggleMeaning();
-        toggleChar
+        toggleChar();
       }
     } else {
       partFadeBack(event);
@@ -393,31 +396,48 @@ $(document).ready(function() {
   }
 
   function togglePY() {
-    $('#pinyin').fadeOut(500, function() {
-      document.getElementById('pinyin').classList.remove("btn");
-      document.getElementById('pinyin').classList.remove("btn-outline-light");
-      $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem]);
-      $('#pinyin').fadeIn();
-    });
+    if (!isPYHintDisplaying) {
+      $('#pinyin').fadeOut(500, function() {
+        document.getElementById('pinyin').classList.remove("btn");
+        document.getElementById('pinyin').classList.remove("btn-outline-light");
+        $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem]);
+        $('#pinyin').fadeIn();
+      });
+      isPYHintDisplaying = true;
+    } else {
+      isPYHintDisplaying = false;
+    }
   }
 
   function toggleMeaning() {
-    $('#meaning').fadeOut(500, function() {
-      document.getElementById('meaning').classList.remove("btn");
-      document.getElementById('meaning').classList.remove("btn-outline-light");
-      $('#meaning').html('Meaning: ' + meaningList[currentItem]);
-      $('#meaning').fadeIn();
-    });
+    if (!isMeaningHintDisplaying) {
+      $('#meaning').fadeOut(500, function() {
+        document.getElementById('meaning').classList.remove("btn");
+        document.getElementById('meaning').classList.remove("btn-outline-light");
+        $('#meaning').html('Meaning: ' + meaningList[currentItem]);
+        $('#meaning').fadeIn();
+        isMeaningHintDisplaying = true; 
+      });
+    } else {
+      isMeaningHintDisplaying = false;
+    }
+
   }
 
   function toggleChar() {
-    $('#chinese_char').fadeOut(500, function() {
-      document.getElementById('chinese_char').classList.remove("btn");
-      document.getElementById('chinese_char').classList.remove("btn-outline-light");      
-      $('#chinese_char').html(chineseCharList[currentItem]);
-      document.getElementById('chinese_char').classList.add("h1");
-      $('#chinese_char').fadeIn();
-    });
+    if (!isCharHintDisplaying) {
+
+      $('#chinese_char').fadeOut(500, function() {
+        document.getElementById('chinese_char').classList.remove("btn");
+        document.getElementById('chinese_char').classList.remove("btn-outline-light");      
+        $('#chinese_char').html(chineseCharList[currentItem]);
+        document.getElementById('chinese_char').classList.add("h1");
+        $('#chinese_char').fadeIn();
+      });
+      isCharHintDisplaying = true;
+    } else {
+      isCharHintDisplaying = false;
+    }
   }
 
   function dismissHintContent() {
