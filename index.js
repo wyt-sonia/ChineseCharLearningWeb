@@ -167,6 +167,8 @@ $(document).ready(function() {
 
       document.getElementById(part).classList.remove("btn");
       document.getElementById(part).classList.remove("btn-outline-light");
+      document.getElementById(part).classList.remove("btn-outline-info");
+      document.getElementById(part).classList.remove("btn-outline-warning");
       document.getElementById(part).setAttribute('draggable', false);
       var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
 
@@ -426,6 +428,7 @@ $(document).ready(function() {
 
   function getParts(currentItem) {
     var partsHtml = '';
+    var colorList = ['success', 'warning', 'info'];
     for (i = 0; i < chineseCharPartList[currentItem].length; i++) {
       var style = "";
       if (currentItem > 8) {
@@ -434,7 +437,7 @@ $(document).ready(function() {
       partsHtml +=
         "<div id='" +
         chineseCharPartList[currentItem][i] +
-        '\' class="parts btn btn-outline-light" draggable="true" '+ style +'>' +
+        '\' class=\'parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' +
         chineseCharPartList[currentItem][i] +
         '</div>';
     }
