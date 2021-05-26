@@ -89,6 +89,8 @@ $(document).ready(function() {
   var isSimple = true;
 
   freshUI(-1);
+  var st_containerW = $("#st_container").width();
+  $('#st_container').css({'height': st_containerW+'px'});
 
   $('#nextBtn').click(function() {
     currentItem++;
@@ -424,7 +426,6 @@ $(document).ready(function() {
       var style = "";
       if (currentItem > 8) {
         style = 'style= "margin: 10px; font-size: 2.5em"';
-        $("#hints_content").css("height", "8%");
       } 
       partsHtml +=
         "<div id='" +
@@ -436,3 +437,4 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
+
