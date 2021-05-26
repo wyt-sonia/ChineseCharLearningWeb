@@ -1,219 +1,209 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="The cover page of Chinese Char Learning Web App"
-    />
-    <title>Chinese Character Learner</title>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      type="text/javascript"
-    ></script>
-    <script src="index.js" type="text/javascript"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <style>
-      html,
-      body {
-        height: 100%;
-        min-width: 800px;
-        min-height: 650px;
-      }
 
-      body {
-        background-image: url('https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/chars7.jpg');
-        background-size: cover;
-        font-family: 'Courier New', monospace;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="The cover page of Chinese Char Learning Web App" />
+  <title>Chinese Character Learner</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+  <script src="index.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      min-width: 800px;
+      min-height: 650px;
+    }
 
-      #container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+    body {
+      background-image: url('https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/chars7.jpg');
+      background-size: cover;
+      font-family: 'Courier New', monospace;
+    }
 
-      #title {
-        margin: 60px auto;
-      }
+    #container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-      #description {
-        margin: 60px auto;
-      }
+    #title {
+      margin: 60px auto;
+    }
 
-      #btn_container {
-        margin: 10px auto;
-        display: flex;
-        flex-direction: row;
-        max-width: 400px;
-        width: 50%;
-      }
+    #description {
+      margin: 60px auto;
+    }
 
-      #startBtn {
-        flex: 1;
-        margin: 10px 10px;
-        max-width: 400px;
-      }
+    #btn_container {
+      margin: 10px auto;
+      display: flex;
+      flex-direction: row;
+      max-width: 400px;
+      width: 50%;
+    }
 
-      #nextBtn {
-        flex: 1;
-        margin: 10px 10px;
-        max-width: 400px;
-      }
+    #startBtn {
+      flex: 1;
+      margin: 10px 10px;
+      max-width: 400px;
+    }
 
-      #hintBtn {
-        min-width: 100px;
-        width: 80%;
-      }
+    #nextBtn {
+      flex: 1;
+      margin: 10px 10px;
+      max-width: 400px;
+    }
 
-      #game_container {
-        display: none;
-      }
+    #hintBtn {
+      min-width: 100px;
+      width: 80%;
+    }
 
-      #game_container {
-        margin: 0 0 60px 0;
-      }
+    #game_container {
+      display: none;
+    }
 
-      #user_action_area {
-        display: flex;
-        flex-direction: row;
-      }
+    #game_container {
+      margin: 0 0 60px 0;
+    }
 
-      #result_container {
-        flex: 30%;
-        height: 300px;
-      }
+    #user_action_area {
+      display: flex;
+      flex-direction: row;
+    }
 
-      #structure_template_container {
-        width: 318px;
-        border-right: 1px solid #f1f1f1;
-        border-left: 1px solid #f1f1f1;
-      }
+    #result_container {
+      flex: 30%;
+      height: 300px;
+    }
 
-      .ua_title {
-        margin: 0 0 20px 0;
-      }
+    #structure_template_container {
+      width: 318px;
+      border-right: 1px solid #f1f1f1;
+      border-left: 1px solid #f1f1f1;
+    }
 
-      #hints_content {
-        display: flex;
-        flex-direction: column;
-        height: 70%;
-      }
+    .ua_title {
+      margin: 0 0 20px 0;
+    }
 
-      #meaning {
-        margin: 20px 0 20px 0;
-      }
+    #hints_content {
+      display: flex;
+      flex-direction: column;
+      height: 70%;
+    }
 
-      #chinese_char {
-        margin: 20px 0 20px 0;
-      }
+    #meaning {
+      margin: 20px 0 20px 0;
+    }
 
-      #st_container {
-        height: 315px;
-        width: 315px;
-      }
+    #chinese_char {
+      margin: 20px 0 20px 0;
+    }
 
-      #st_contents {
-        margin: auto 0;
-        padding: 0 20px;
-        height: 90%;
-        width: 100%;
-      }
+    #st_container {
+      height: 315px;
+      width: 315px;
+    }
 
-      #parts_container {
-        flex: 30%;
-      }
+    #st_contents {
+      margin: auto 0;
+      padding: 0 20px;
+      height: 90%;
+      width: 100%;
+    }
 
-      #parts_items_container {
-        display: flex;
-        flex-direction: column;
-      }
+    #parts_container {
+      flex: 30%;
+      padding: 0 px;
+    }
 
-      .parts {
-        cursor: move;
-        display: inline-block;
-        margin: 20px;
-        font-size: 3em;
-      }
+    #parts_items_container {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .st_content {
-        display: inline-block;
-        border: 2px dashed white;
-      }
-    </style>
-  </head>
+    .parts {
+      cursor: move;
+      display: inline-block;
+      margin: 20px;
+      font-size: 3em;
+    }
 
-  <body>
-    <div id="container">
-      <div id="cover_container">
-        <h1 id="title" class="text-light fs-1">
-          Chinese Character Learning
-        </h1>
-        <div id="description" class="text-light fs-6">
-          <p>
-            Some description here:
-          </p>
-          <p>
-            How to play:
-          </p>
-          <p>
-            What to play:
-          </p>
-        </div>
-      </div>
-      <div id="game_container">
-        <h3 id="title" class="text-light fs-1">
-          Question
-        </h3>
-        <div id="user_action_area">
-          <div id="result_container">
-            <h5 id="hint_title" class="ua_title text-light">
-              Hint
-            </h5>
-            <div id="hints_content" class="text-light">
-              <div id="pinyin"></div>
+    .st_content {
+      display: inline-block;
+      border: 2px dashed white;
+    }
+  </style>
+</head>
 
-              <div id="meaning"></div>
-              <h1 id="chinese_char"></h1>
-            </div>
-            <button id="hintBtn" type="button" class="btn btn-outline-light">
-              Show Hint
-            </button>
-          </div>
-          <div id="structure_template_container">
-            <h5 id="st_title" class="ua_title text-light fs-6">
-              Structure Template
-            </h5>
-            <div id="st_container"></div>
-          </div>
-          <div id="parts_container">
-            <h5 id="parts_title" class="ua_title text-light fs-6">
-              Parts
-            </h5>
-            <div id="parts_items_container"></div>
-          </div>
-        </div>
-      </div>
-      <div id="btn_container">
-        <button id="startBtn" type="button" class="btn btn-outline-light">
-          Start the game
-        </button>
-        <button id="nextBtn" type="button" class="btn btn-outline-light">
-          Next
-        </button>
+<body>
+  <div id="container">
+    <div id="cover_container">
+      <h1 id="title" class="text-light fs-1">
+        Chinese Character Learning
+      </h1>
+      <div id="description" class="text-light fs-6">
+        <p>
+          Some description here:
+        </p>
+        <p>
+          How to play:
+        </p>
+        <p>
+          What to play:
+        </p>
       </div>
     </div>
-  </body>
+    <div id="game_container">
+      <h3 id="title" class="text-light fs-1">
+        Question
+      </h3>
+      <div id="user_action_area">
+        <div id="result_container">
+          <h5 id="hint_title" class="ua_title text-light">
+            Hint
+          </h5>
+          <div id="hints_content" class="text-light">
+            <div id="pinyin"></div>
+
+            <div id="meaning"></div>
+            <h1 id="chinese_char"></h1>
+          </div>
+          <button id="hintBtn" type="button" class="btn btn-outline-light">
+              Show Hint
+            </button>
+        </div>
+        <div id="structure_template_container">
+          <h5 id="st_title" class="ua_title text-light fs-6">
+            Structure Template
+          </h5>
+          <div id="st_container"></div>
+        </div>
+        <div id="parts_container">
+          <h5 id="parts_title" class="ua_title text-light fs-6">
+            Parts
+          </h5>
+          <div id="parts_items_container"></div>
+        </div>
+      </div>
+    </div>
+    <div id="btn_container">
+      <button id="startBtn" type="button" class="btn btn-outline-light">
+          Start the game
+        </button>
+      <button id="nextBtn" type="button" class="btn btn-outline-light">
+          Next
+        </button>
+    </div>
+  </div>
+</body>
+
 </html>
