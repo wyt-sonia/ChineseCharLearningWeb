@@ -139,7 +139,7 @@ $(document).ready(function() {
       document.getElementById('chinese_char').classList.remove("btn");
       document.getElementById('chinese_char').classList.remove("btn-outline-light");      
       $('#chinese_char').html(chineseCharList[currentItem]);
-      document.getElementById('chinese_char').classList.ad("h1");
+      document.getElementById('chinese_char').classList.add("h1");
       $('#chinese_char').fadeIn();
     });
   });
@@ -178,6 +178,7 @@ $(document).ready(function() {
   $(document).on('drop', '.st_content', function(event, this) {
     if (isCorrect(event)) {
       partFadeBack(event);
+      
       if (!isSimple && event.target.id != 'inner') { 
         if (!isOuterFull) {       
           document.getElementById("0").appendChild(document.getElementById(part));
@@ -190,9 +191,9 @@ $(document).ready(function() {
       }
 
       document.getElementById(part).classList.remove("btn");
-      document.getElementById(part).classList.remove("btn-outline-light");
+      document.getElementById(part).classList.remove("btn-outline-waring");
       document.getElementById(part).classList.remove("btn-outline-info");
-      document.getElementById(part).classList.remove("btn-outline-warning");
+      document.getElementById(part).classList.remove("btn-outline-success");
       document.getElementById(part).setAttribute('draggable', false);
       var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
 
@@ -458,4 +459,5 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
+
 
