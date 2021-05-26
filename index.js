@@ -343,8 +343,12 @@ $(document).ready(function() {
       $('body').fadeOut(500, function() {
         $('body').css({
           background:
-            "url('https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/chars5.jpg')",
-          'background-size': 'cover'
+            "url('https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/bg.png')",
+
+          'background-repeat': 'repeat'
+        });
+        $('#container').css({
+          backgroundColor: 'transparent'
         });
         $('body').fadeIn(1000);
 
