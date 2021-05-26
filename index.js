@@ -423,7 +423,8 @@ $(document).ready(function() {
       $('#pinyin').fadeOut(500, function() {
         document.getElementById('pinyin').classList.remove("btn");
         document.getElementById('pinyin').classList.remove("btn-outline-light");
-        $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem]);
+        var audio = '<audio controls autoplay> <source src=\''+ audioList[currentItem]+'\' type="audio/mpeg"> Your browser does not support the audio element. </audio>';
+        $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem] + audio);
         $('#pinyin').fadeIn();
       });
       isPYHintDisplaying = true;
