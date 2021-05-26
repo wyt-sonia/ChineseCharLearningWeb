@@ -119,6 +119,12 @@ $(document).ready(function() {
     isGaming = !isGaming;
   });
 
+  $('successModalCloseBtn').click(function() {
+      togglePY();
+      toggleMeaning();
+      toggleChar();
+  });
+
   $('#pinyin').click(function() {
     togglePY();
   });
@@ -195,9 +201,6 @@ $(document).ready(function() {
         counter = 0;
         isOuterFull = false;
         $('#successModal').modal('show');
-        togglePY();
-        toggleMeaning();
-        toggleChar();
       }
     } else {
       $('#wrongAttemptModal').modal('show');
@@ -378,6 +381,10 @@ $(document).ready(function() {
       $('#nextBtn').fadeOut(500);
 
       $('.cover_container').fadeIn(1000);
+
+      $('#container').css({
+          backgroundColor: 'rgba(0, 0, 0, 0.5);'
+        });
 
       $('#startBtn').fadeOut(500, function() {
         $('#startBtn').html('Start the game');
