@@ -119,7 +119,7 @@ $(document).ready(function() {
     isGaming = !isGaming;
   });
 
-  $('successModalCloseBtn').click(function() {
+  $('.successModalCloseBtn').click(function() {
       togglePY();
       toggleMeaning();
       toggleChar();
@@ -383,7 +383,7 @@ $(document).ready(function() {
       $('.cover_container').fadeIn(1000);
 
       $('#container').css({
-          backgroundColor: 'rgba(0, 0, 0, 0.5);'
+          backgroundColor: 'rgba(0, 0, 0, 0.5)'
         });
 
       $('#startBtn').fadeOut(500, function() {
@@ -449,6 +449,9 @@ $(document).ready(function() {
   }
 
   function dismissHintContent() {
+    isPYHintDisplaying = false;
+    isCharHintDisplaying = false;
+    isMeaningHintDisplaying = false;
     $('#meaning').fadeOut(500, function() {
       document.getElementById('meaning').classList.add("btn");
       document.getElementById('meaning').classList.add("btn-outline-light");
@@ -502,5 +505,7 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
+
+
 
 
