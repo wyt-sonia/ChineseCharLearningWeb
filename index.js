@@ -117,31 +117,15 @@ $(document).ready(function() {
   });
 
   $('#pinyin').click(function() {
-    $('#pinyin').fadeOut(500, function() {
-      document.getElementById('pinyin').classList.remove("btn");
-      document.getElementById('pinyin').classList.remove("btn-outline-light");
-      $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem]);
-      $('#pinyin').fadeIn();
-    });
+    togglePY();
   });
 
   $('#meaning').click(function() {
-    $('#meaning').fadeOut(500, function() {
-      document.getElementById('meaning').classList.remove("btn");
-      document.getElementById('meaning').classList.remove("btn-outline-light");
-      $('#meaning').html('Meaning: ' + meaningList[currentItem]);
-      $('#meaning').fadeIn();
-      });
+    toggleMeaning();
   });
 
   $('#chinese_char').click(function() {
-    $('#chinese_char').fadeOut(500, function() {
-      document.getElementById('chinese_char').classList.remove("btn");
-      document.getElementById('chinese_char').classList.remove("btn-outline-light");      
-      $('#chinese_char').html(chineseCharList[currentItem]);
-      document.getElementById('chinese_char').classList.add("h1");
-      $('#chinese_char').fadeIn();
-    });
+    toggleChar();
   });
 
   $(document).on('dragstart', '.parts', function(event) {
@@ -207,6 +191,9 @@ $(document).ready(function() {
       if (isFullyCorrect()) {
         counter = 0;
         isOuterFull = false;
+        togglePY();
+        toggleMeaning();
+        toggleChar
       }
     } else {
       partFadeBack(event);
@@ -403,6 +390,34 @@ $(document).ready(function() {
         $('#cover_container').fadeIn(1000);
       });
     }
+  }
+
+  function togglePY() {
+    $('#pinyin').fadeOut(500, function() {
+      document.getElementById('pinyin').classList.remove("btn");
+      document.getElementById('pinyin').classList.remove("btn-outline-light");
+      $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem]);
+      $('#pinyin').fadeIn();
+    });
+  }
+
+  function toggleMeaning() {
+    $('#meaning').fadeOut(500, function() {
+      document.getElementById('meaning').classList.remove("btn");
+      document.getElementById('meaning').classList.remove("btn-outline-light");
+      $('#meaning').html('Meaning: ' + meaningList[currentItem]);
+      $('#meaning').fadeIn();
+    });
+  }
+
+  function toggleChar() {
+    $('#chinese_char').fadeOut(500, function() {
+      document.getElementById('chinese_char').classList.remove("btn");
+      document.getElementById('chinese_char').classList.remove("btn-outline-light");      
+      $('#chinese_char').html(chineseCharList[currentItem]);
+      document.getElementById('chinese_char').classList.add("h1");
+      $('#chinese_char').fadeIn();
+    });
   }
 
   function dismissHintContent() {
