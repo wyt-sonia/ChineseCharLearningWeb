@@ -54,6 +54,20 @@ var chineseCharPartList = [
   ['艹', '曰', '十']
 ];
 
+var audioList = [
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%94%B7.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%BA%A2.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%BF%9B.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%BA%97.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%8B%BE.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E9%97%AD.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%87%B6.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%8C%BB.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%9B%BD.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E6%A0%91.mp3?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%8D%89.mp3?raw=true'
+]
+
 var st_htmls = [
   // 男
   '<div id="st_contents"> <div style="display: flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1;border-bottom:0px;"></div> <div class="st_content" id="down" style="flex: 1;"></div> </div> </div> ',
@@ -505,6 +519,3 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
-
-
-
