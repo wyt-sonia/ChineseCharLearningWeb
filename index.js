@@ -129,6 +129,7 @@ $(document).ready(function() {
     toggleContents(isGaming);
     initST(0);
     initParts(0);
+    dismissHintContent()
 
     isGaming = !isGaming;
   });
