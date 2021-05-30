@@ -93,6 +93,8 @@ var st_htmls = [
   '<div id="st_contents"> <div style="display: flex; flex-direction: column;height: 95%; width: 100%;"><div class="st_content" id="top" style="flex: 1;border-bottom:0px;"></div> <div class="st_content" id="mid" style="flex: 1;"></div> <div class="st_content" id="down" style="flex: 1;border-top:0px;"></div> </div> </div>'
 ];
 
+var st_temp_bg = '<div id="st_container_full" class="st_temp_bg"  style="z-index: 100"></div> <div id="st_container_0" class="st_temp_bg" style="z-index: 100"></div> <div id="st_container_1" class="st_temp_bg"  style="z-index: 10"></div><div id="st_container_2" class="st_temp_bg"  style="z-index: 1"></div>';
+
 // randomly display at parts
 $(document).ready(function() {
   var currentItem = 0;
@@ -104,12 +106,14 @@ $(document).ready(function() {
   var isPYHintDisplaying = false;
   var isMeaningHintDisplaying = false;
   var isCharHintDisplaying = false;
+  var st_background = '';
 
   freshUI(-1);
   var st_containerW = $("#st_container").width();
   $('#st_container').css({'height': st_containerW+'px'});
 
   $('#nextBtn').click(function() {
+    st_background = "";
     currentItem++;
     if (currentItem == 10) {
       $('#nextBtn').fadeOut(1);
@@ -130,7 +134,10 @@ $(document).ready(function() {
     initST(0);
     initParts(0);
     dismissHintContent();
-
+    st_background = "";
+    $('#st_container').css({
+        background: st_background
+      });
     isGaming = !isGaming;
   });
 
@@ -153,7 +160,6 @@ $(document).ready(function() {
   });
 
   $(document).on('dragstart', '.parts', function(event) {
-    console.log(event.target.id + ' is draged');
     part = event.target.id;
   });
 
@@ -186,33 +192,41 @@ $(document).ready(function() {
   $(document).on('drop', '.st_content', function(event, this) {
     if (isCorrect(event)) {
       partFadeBack(event);
-      
-      if (!isSimple && event.target.id != 'inner') { 
-        if (!isOuterFull) {       
-          document.getElementById("0").appendChild(document.getElementById(part));
-          isOuterFull = false;
-        }
+      var bgURL = '';
+      if (isSimple || event.target.id == 'inner') {
+        bgURL = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/' + chineseCharList[currentItem] + '/' + event.target.id +'.png';
       } else {
-        if (this.childElementCount == 0) {
-          this.appendChild(document.getElementById(part));
-        }
+        bgURL = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/' + chineseCharList[currentItem] + '/outer.png';
       }
+      var comma = '';
+      if (st_background.length != 0) {
+        comma = ',';
+      }
+      st_background += comma + ' url(\'' + bgURL + '\') no-repeat 50% 30%';
+      
+      console.log(st_background);
 
       document.getElementById(part).classList.remove("btn");
       document.getElementById(part).classList.remove("btn-outline-warning");
       document.getElementById(part).classList.remove("btn-outline-info");
       document.getElementById(part).classList.remove("btn-outline-success");
       document.getElementById(part).setAttribute('draggable', false);
-      var paddingT  = ($("#" + part).parent().height() - $("#" + part).height()) / 2; 
+      $('#'+part).html('');
+      $('#st_container').css({
+        background: st_background
+      });
+
 
       $("#" + part).css ({
-        paddingTop: paddingT,
+        paddingBottom: '10px',
         color: 'white',
         margin: '0',
         width: '100%',
         textAline: 'center',
       });
       if (isFullyCorrect()) {
+        var bgURL = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/' + chineseCharList[currentItem] + '/' + chineseCharList[currentItem] +'.png';
+
         counter = 0;
         isOuterFull = false;
         $('#successModal').modal('show');
@@ -250,7 +264,6 @@ $(document).ready(function() {
         });
       }
     } else {
-      console.log(document.getElementById(event.target.id).childElementCount);
       if (document.getElementById(event.target.id).childElementCount == 0) {
         $(event.target).css({
           backgroundColor: 'transparent',
@@ -490,8 +503,12 @@ $(document).ready(function() {
   }
 
   function initST(currentItem) {
+    
     $('#st_container').fadeOut(500, function() {
       $('#st_container').html(st_htmls[currentItem]);
+      $('#st_container').css({
+        'background-image' : 'none'
+      });
       $('#st_container').fadeIn();
     });
   }
@@ -521,3 +538,4 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
+

@@ -28,7 +28,7 @@
     html,
     body {
       height: 100%;
-      min-width: 800px;
+      min-width: 1200px;
       min-height: 650px;
     }
 
@@ -128,6 +128,7 @@
     #st_container {
       height: 315px;
       width: 315px;
+      transition: all 0.3s ease;
     }
 
     #st_contents {
@@ -162,6 +163,11 @@
     .st_content {
       display: inline-block;
       border: 2px dashed white;
+    }
+
+    .st_temp_bg {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
@@ -209,7 +215,8 @@
           <h5 id="st_title" class="ua_title text-light fs-6">
             Structure Template
           </h5>
-          <div id="st_container"></div>
+          <div id="st_container">
+          </div>
         </div>
         <div id="parts_container">
           <h5 id="parts_title" class="ua_title text-light fs-6">
