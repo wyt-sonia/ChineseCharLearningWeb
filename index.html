@@ -169,6 +169,10 @@
       width: 100%;
       height: 100%;
     }
+
+    #q_title {
+      transition: all 0.1s ease;
+    }
   </style>
 </head>
 
@@ -191,14 +195,14 @@
       </div>
     </div>
     <div id="game_container">
-      <h3 id="title" class="text-light fs-1">
+      <h id="q_title" class="text-light fs-1">
         Question
-      </h3>
+      </h5>
       <div id="user_action_area">
         <div id="result_container">
-          <h5 id="hint_title" class="ua_title text-light">
+          <h5 id="hint_title" class="ua_title text-light"><b>
             Hint
-          </h5>
+          </b></h5>
           <div id="hints_content" class="text-light">
             <div id="pinyin" type="button" class="btn btn-outline-light hint">
               Pin Yin Hint
@@ -212,18 +216,24 @@
           </div>
         </div>
         <div id="structure_template_container">
-          <h5 id="st_title" class="ua_title text-light fs-6">
+          <h5 id="st_title" class="ua_title text-light fs-6"><b>
             Structure Template
-          </h5>
+          </b></h5>
           <div id="st_container">
           </div>
         </div>
         <div id="parts_container">
-          <h5 id="parts_title" class="ua_title text-light fs-6">
+          <h5 id="parts_title" class="ua_title text-light fs-6"><b>
             Parts
-          </h5>
+          </b></h5>
           <div id="parts_items_container"></div>
         </div>
+      </div>
+      <div id="descriptionss" class="ua_title text-light fs-6" style="margin-top: 20px">
+        <p>
+          To build a Chinese character, please drag the <b>radical</b> from the <b>Parts</b> panel and drop it to its
+          correct possition in the <b>Structure Template</b> panel.
+        </p>
       </div>
     </div>
     <div id="btn_container">

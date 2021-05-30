@@ -119,6 +119,11 @@ $(document).ready(function() {
       $('#nextBtn').fadeOut(1);
     }
 
+    $('#q_title').fadeOut(500, function() {
+        $('#q_title').html('Question ' + (currentItem + 1));
+        $('#q_title').fadeIn();
+      });
+
     toggleIsSimple(currentItem);
     initST(currentItem);
     initParts(currentItem);
@@ -381,6 +386,7 @@ $(document).ready(function() {
   function toggleContents(isGaming) {
     if (!isGaming) {
       $('#nextBtn').fadeIn(1000);
+      $('#q_title').html('Question ' + (currentItem + 1));
 
       $('.cover_container').fadeIn(1000);
 
