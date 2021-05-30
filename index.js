@@ -522,6 +522,8 @@ $(document).ready(function() {
   function initParts(currentItem) {
     $('#parts_items_container').fadeOut(500, function() {
       $('#parts_items_container').html(getParts(currentItem));
+     
+     
       $('#parts_items_container').fadeIn();
     });
   }
@@ -534,12 +536,13 @@ $(document).ready(function() {
       if (currentItem > 8) {
         style = 'style= "margin: 10px; font-size: 2.5em"';
       } 
+      
       partsHtml +=
         "<div id='" +
         chineseCharPartList[currentItem][i] +
         '\' class=\'parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' +
         chineseCharPartList[currentItem][i] +
-        '</div>';
+        '</div>'; 
     }
     return partsHtml;
   }
