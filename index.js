@@ -475,6 +475,7 @@ $(document).ready(function() {
         document.getElementById('chinese_char').classList.remove("btn-outline-light");      
         $('#chinese_char').html(chineseCharList[currentItem]);
         document.getElementById('chinese_char').classList.add("h1");
+        document.getElementById('chinese_char').classList.add("fontKai");
         $('#chinese_char').fadeIn();
       });
       isCharHintDisplaying = true;
@@ -503,6 +504,7 @@ $(document).ready(function() {
       document.getElementById('chinese_char').classList.add("btn");
       document.getElementById('chinese_char').classList.add("btn-outline-light");
       document.getElementById('chinese_char').classList.remove("h1");
+      document.getElementById('chinese_char').classList.remove("fontKai");
       $('#chinese_char').html('Result Character');
       $('#chinese_char').fadeIn();
       });
@@ -521,9 +523,7 @@ $(document).ready(function() {
 
   function initParts(currentItem) {
     $('#parts_items_container').fadeOut(500, function() {
-      $('#parts_items_container').html(getParts(currentItem));
-     
-     
+      $('#parts_items_container').html(getParts(currentItem)); 
       $('#parts_items_container').fadeIn();
     });
   }
