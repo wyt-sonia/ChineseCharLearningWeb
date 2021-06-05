@@ -51,7 +51,21 @@ var chineseCharPartList = [
   ['匚', '矢'],
   ['囗', '玉'],
   ['木', '寸', '又'],
-  ['艹', '曰', '十']
+  ['十', '艹', '曰']
+];
+
+var chineseCharPartIDList = [
+  ['down', 'top'],
+  ['left', 'right'],
+  ['outer', 'inner'],
+  ['outer', 'inner'],
+  ['outer', 'inner'],
+  ['outer', 'inner'],
+  ['inner', 'outer'],
+  ['outer', 'inner'],
+  ['outer', 'inner'],
+  ['left', 'right', 'mid'],
+  ['down', 'top', 'mid']
 ];
 
 var audioList = [
@@ -536,13 +550,25 @@ $(document).ready(function() {
       if (currentItem > 8) {
         style = 'style= "margin: 10px; font-size: 2.5em"';
       } 
+
+      var content = "";
+
+      if ( currentItem == 6 && i == 0) {
+        var imgSrc = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/' + chineseCharList[currentItem] + '/' + chineseCharPartIDList[currentItem][i] +'.png';
+        content = '<img src="' + imgSrc + '" width="40"/>';
+      } else {
+          content = chineseCharPartList[currentItem][i]
+      }
+      
+      
       
       partsHtml +=
         "<div id='" +
         chineseCharPartList[currentItem][i] +
-        '\' class=\'fontKai parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' +
-        chineseCharPartList[currentItem][i] +
+        '\' class=\'fontKai parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' + content +  
         '</div>'; 
+
+        
     }
     return partsHtml;
   }
