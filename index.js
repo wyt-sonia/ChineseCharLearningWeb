@@ -540,11 +540,12 @@ $(document).ready(function() {
       partsHtml +=
         "<div id='" +
         chineseCharPartList[currentItem][i] +
-        '\' class=\'parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' +
+        '\' class=\'fontKai parts btn btn-outline-'+colorList[i]+'\' draggable=\'true\' '+ style +'>' +
         chineseCharPartList[currentItem][i] +
         '</div>'; 
     }
     return partsHtml;
   }
 });
+
 
