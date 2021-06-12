@@ -115,6 +115,7 @@ $(document).ready(function() {
   $('#nextBtn').click(function() {
     st_background = "";
     currentItem++;
+    c
     if (currentItem == 10) {
       $('#nextBtn').fadeOut(1);
     }
