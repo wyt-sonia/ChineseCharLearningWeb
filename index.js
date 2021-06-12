@@ -115,7 +115,7 @@ $(document).ready(function() {
   $('#nextBtn').click(function() {
     st_background = "";
     currentItem++;
-    c
+    counter = 0;
     if (currentItem == 10) {
       $('#nextBtn').fadeOut(1);
     }
@@ -134,6 +134,7 @@ $(document).ready(function() {
   $('#startBtn').click(function() {
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
+      
       freshUI(-1);
     }
     toggleContents(isGaming);
