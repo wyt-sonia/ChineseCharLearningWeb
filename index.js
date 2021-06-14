@@ -121,6 +121,7 @@ $(document).ready(function() {
     }
 
     $('#q_title').fadeOut(500, function() {
+        $('#q_title').css('color', 'white');
         $('#q_title').html('Question ' + (currentItem + 1));
         $('#q_title').fadeIn();
       });
@@ -135,7 +136,7 @@ $(document).ready(function() {
 
   $('#startBtn').click(function() {
     counter = 0;
-    
+    $(".st_content").css("border-color", "white");
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
       freshUI(-1);
@@ -171,6 +172,8 @@ $(document).ready(function() {
 
   $(document).on('dragstart', '.parts', function(event) {
     part = event.target.id;
+    $('#q_title').css('color', 'white');
+    $('#q_title').html('Question ' + (currentItem + 1));
   });
 
   $(document).on('dragover', '.st_content', function(event, this) {
@@ -202,6 +205,10 @@ $(document).ready(function() {
   $(document).on('drop', '.st_content', function(event, this) {
     if (isCorrect(event)) {
       partFadeBack(event);
+
+      $('#q_title').css('color', 'rgb(92, 184, 92)');
+      $('#q_title').html('That was a right move ;)');
+
       var bgURL = '';
       if (isSimple || event.target.id == 'inner') {
         bgURL = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/' + chineseCharList[currentItem] + '/' + event.target.id +'.png';
@@ -240,10 +247,14 @@ $(document).ready(function() {
         counter = 0;
         isOuterFull = false;
         $(".st_content").css("border-color", "#5bc0de");
+        $('#q_title').css('color', 'rgb(92, 184, 92)');
+        $('#q_title').html('Great! You got it right XD');
         //$('#successModal').modal('show');
       }
     } else {
       //$('#wrongAttemptModal').modal('show');
+      $('#q_title').css('color', 'rgb(217, 83, 79)');
+      $('#q_title').html('That was a wrong attempt :(');
       partFadeBack(event);
     }
   });
@@ -392,6 +403,7 @@ $(document).ready(function() {
   function toggleContents(isGaming) {
     if (!isGaming) {
       $('#nextBtn').fadeIn(1000);
+      $('#q_title').css('color', 'white');
       $('#q_title').html('Question ' + (currentItem + 1));
 
       $('.cover_container').fadeIn(1000);
@@ -574,6 +586,7 @@ $(document).ready(function() {
     return partsHtml;
   }
 });
+
 
 
 
