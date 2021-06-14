@@ -119,6 +119,7 @@ $(document).ready(function() {
     st_background = "";
     currentItem++;
     counter = 0;
+    $('#nextBtn').prop('disabled', true);
     if (currentItem == 10) {
       $('#nextBtn').fadeOut(1);
     }
@@ -139,6 +140,7 @@ $(document).ready(function() {
 
   $('#startBtn').click(function() {
     counter = 0;
+    $('#nextBtn').prop('disabled', true);
     $(".st_content").css("border-color", "white");
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
@@ -256,8 +258,10 @@ $(document).ready(function() {
           togglePY();
           toggleMeaning();
           toggleChar();
+          setTimeout(function(){
           $('#nextBtn').prop('disabled', false);
-        },2000);
+          },500);
+        },1500);
         
         //$('#successModal').modal('show');
       } else {
