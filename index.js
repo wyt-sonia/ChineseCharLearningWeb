@@ -132,9 +132,9 @@ $(document).ready(function() {
   });
 
   $('#startBtn').click(function() {
+    counter = 0;
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
-      
       freshUI(-1);
     }
     toggleContents(isGaming);
