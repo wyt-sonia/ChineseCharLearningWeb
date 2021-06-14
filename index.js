@@ -125,6 +125,8 @@ $(document).ready(function() {
         $('#q_title').fadeIn();
       });
 
+    $(".st_content").css("border-color", "white");
+
     toggleIsSimple(currentItem);
     initST(currentItem);
     initParts(currentItem);
@@ -133,6 +135,7 @@ $(document).ready(function() {
 
   $('#startBtn').click(function() {
     counter = 0;
+    
     if (currentItem != 0 && isGaming) {
       currentItem = 0;
       freshUI(-1);
@@ -236,10 +239,11 @@ $(document).ready(function() {
 
         counter = 0;
         isOuterFull = false;
-        $('#successModal').modal('show');
+        $(".st_content").css("border-color", "#5bc0de");
+        //$('#successModal').modal('show');
       }
     } else {
-      $('#wrongAttemptModal').modal('show');
+      //$('#wrongAttemptModal').modal('show');
       partFadeBack(event);
     }
   });
