@@ -109,6 +109,7 @@ $(document).ready(function() {
   var st_background = '';
   var fullyRightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/full.wav?raw=true');
   var rightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/right3.mp4?raw=true');
+  var wrongAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/wrong2.mp4?raw=true');
 
   freshUI(-1);
   var st_containerW = $("#st_container").width();
@@ -256,7 +257,6 @@ $(document).ready(function() {
       }
     } else {
       //$('#wrongAttemptModal').modal('show');
-      var wrongAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/wrong2.mp3?raw=true');
       wrongAudio.play();
       $('#q_title').css('color', 'rgb(217, 83, 79)');
       $('#q_title').html('That was a wrong attempt :(');
