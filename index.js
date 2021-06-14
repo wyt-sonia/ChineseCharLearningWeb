@@ -107,6 +107,8 @@ $(document).ready(function() {
   var isMeaningHintDisplaying = false;
   var isCharHintDisplaying = false;
   var st_background = '';
+  var fullyRightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/full.wav?raw=true');
+  var rightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/right3.mp4?raw=true');
 
   freshUI(-1);
   var st_containerW = $("#st_container").width();
@@ -220,8 +222,6 @@ $(document).ready(function() {
         comma = ',';
       }
       st_background += comma + ' url(\'' + bgURL + '\') no-repeat 50% 30%';
-      
-      console.log(st_background);
 
       document.getElementById(part).classList.remove("btn");
       document.getElementById(part).classList.remove("btn-outline-warning");
@@ -232,7 +232,6 @@ $(document).ready(function() {
       $('#st_container').css({
         background: st_background
       });
-
 
       $("#" + part).css ({
         paddingBottom: '10px',
@@ -249,10 +248,16 @@ $(document).ready(function() {
         $(".st_content").css("border-color", "#5bc0de");
         $('#q_title').css('color', 'rgb(92, 184, 92)');
         $('#q_title').html('Great! You got it right XD');
+
+        fullyRightAudio.play();
         //$('#successModal').modal('show');
+      } else {
+        rightAudio.play();
       }
     } else {
       //$('#wrongAttemptModal').modal('show');
+      var wrongAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/wrong2.mp3?raw=true');
+      wrongAudio.play();
       $('#q_title').css('color', 'rgb(217, 83, 79)');
       $('#q_title').html('That was a wrong attempt :(');
       partFadeBack(event);
