@@ -251,6 +251,14 @@ $(document).ready(function() {
         $('#q_title').html('Great! You got it right XD');
 
         fullyRightAudio.play();
+
+        setTimeout(function(){
+          togglePY();
+          toggleMeaning();
+          toggleChar();
+          $('#nextBtn').prop('disabled', false);
+        },2000);
+        
         //$('#successModal').modal('show');
       } else {
         rightAudio.play();
