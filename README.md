@@ -1,3 +1,2 @@
-# chinesecharlearning
+# chinese Character learning
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/chinesecharlearning)
