@@ -54,7 +54,20 @@ var chineseCharPartList = [
   ['十', '艹', '曰']
 ];
 
-
+var audioList = [
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%94%B7.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%BA%A2.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%BF%9B.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%BF%9B.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%BA%97.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%8B%BE.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E9%97%AD.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%87%B6.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%8C%BB.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%9B%BD.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E6%A0%91.mp4?raw=true',
+  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%8D%89.mp4?raw=true'
+]
 
 var st_htmls = [
   // 男
@@ -95,7 +108,7 @@ $(document).ready(function() {
   var isMeaningHintDisplaying = false;
   var isCharHintDisplaying = false;
   var st_background = '';
-  var fullyRightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/full.wav?raw=true');
+  var fullyRightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/full.mp4?raw=true');
   var rightAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/right3.mp4?raw=true');
   var wrongAudio = new Audio('https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/wrong2.mp4?raw=true');
 
@@ -249,7 +262,7 @@ $(document).ready(function() {
           setTimeout(function(){
           $('#nextBtn').prop('disabled', false);
           },500);
-        },1500);
+        },500);
         
         //$('#successModal').modal('show');
       } else {
@@ -466,8 +479,9 @@ $(document).ready(function() {
       $('#pinyin').fadeOut(500, function() {
         document.getElementById('pinyin').classList.remove("btn");
         document.getElementById('pinyin').classList.remove("btn-outline-light");
-        var audio = '<audio controls autoplay> <source src=\''+ audioList[currentItem]+'\' type="audio/mpeg"> Your browser does not support the audio element. </audio>';
+        var audio = '<audio controls id="pyAudio" autoplay> <source src=\''+ audioList[currentItem]+'\' type="audio/mpeg"> Your browser does not support the audio element. </audio>';
         $('#pinyin').html('Pin Yin: ' + pinyinList[currentItem] + audio);
+        
         $('#pinyin').fadeIn();
       });
       isPYHintDisplaying = true;
