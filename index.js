@@ -58,7 +58,6 @@ var audioList = [
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%94%B7.mp4?raw=true',
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E7%BA%A2.mp4?raw=true',
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%BF%9B.mp4?raw=true',
-  'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E8%BF%9B.mp4?raw=true',
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%BA%97.mp4?raw=true',
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E5%8B%BE.mp4?raw=true',
   'https://github.com/wyt-sonia/ChineseCharLearningWeb/blob/master/asset/audio/%E9%97%AD.mp4?raw=true',
@@ -255,13 +254,11 @@ $(document).ready(function() {
 
         fullyRightAudio.play();
 
+        togglePY();
+        toggleMeaning();
+        toggleChar();
         setTimeout(function(){
-          togglePY();
-          toggleMeaning();
-          toggleChar();
-          setTimeout(function(){
-          $('#nextBtn').prop('disabled', false);
-          },500);
+        $('#nextBtn').prop('disabled', false);
         },500);
         
         //$('#successModal').modal('show');
