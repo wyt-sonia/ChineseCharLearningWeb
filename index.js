@@ -576,7 +576,7 @@ $(document).ready(function() {
 
       if ( currentItem == 6 && i == 1) {
         var imgSrc = 'https://raw.githubusercontent.com/wyt-sonia/ChineseCharLearningWeb/master/asset/Image/charBG/凶/inner_yellow.png';
-        content = '<img id="inner_xiong" src="' + imgSrc + '" width="40"/>';
+        content = '<img id="inner_xiong" draggable=\'fals\'  src="' + imgSrc + '" width="40"/>';
         xiong = 'xiong';
 
         $(document).on({
